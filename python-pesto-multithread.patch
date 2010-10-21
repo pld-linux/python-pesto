@@ -1,0 +1,27 @@
+--- ./pesto/core.py.multithread	2010-10-21 10:22:09.000000000 +0200
++++ ./pesto/core.py	2010-10-21 10:22:33.000000000 +0200
+@@ -69,11 +69,24 @@ class PestoWSGIApplication(object):
+         """
+         WSGI callable - take ``pesto_app`` and adapt it to the WSGI interface.
+         """
++        """
++        # Previous version of code
+         self._content_iter = None
+         self.environ = environ
+         self.start_response = start_response
+         self.request = Request(environ)
+         return self
++        """
++        # We need PestoWSGIApplication instance for each request we get as it may have different environ and start_response values.
++        # Especially in multi thread environment like mod_wsgi
++        wrapper =  PestoWSGIApplication(self._pesto_app)
++        wrapper._app_args  = self._app_args
++        wrapper._app_kwargs =  self._app_kwargs
++        wrapper.environ =  environ
++        wrapper.start_response = start_response
++        wrapper.request = Request(environ)
++        return wrapper
++        
+ 
+     def __get__(self, obj, obj_class=None):
+         self._instance = obj

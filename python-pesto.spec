@@ -3,11 +3,12 @@ Summary:	library for Python web applications
 Summary(pl.UTF-8):	Biblioteka dla Pythonowych aplikacji sieciowych
 Name:		python-%{module}
 Version:	19
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	3f279d94147b511de47b3ae067d59a38
+Patch0:         %{name}-multithread.patch
 URL:		http://pesto.redgecko.org/index.html
 # BuildRequires:	python-distribute
 BuildRequires:	rpm-pythonprov
@@ -33,7 +34,7 @@ manipulować nagłówki HTTP, przekierowania, ciasteczka itp.
 
 %prep
 %setup -q -n %{module}-%{version}
-
+%patch0 -p1
 %{__python} setup.py build
 
 %install

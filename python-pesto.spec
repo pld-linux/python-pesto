@@ -10,6 +10,7 @@ Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}
 # Source0-md5:	b03d5b046cde45e73a33d28d1eb859a6
 URL:		http://pesto.redgecko.org/index.html
 # BuildRequires:	python-distribute
+BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 # if py_postclean is used
 BuildRequires:	rpmbuild(macros) >= 1.219

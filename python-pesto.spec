@@ -2,12 +2,12 @@
 Summary:	library for Python web applications
 Summary(pl.UTF-8):	Biblioteka dla Pythonowych aplikacji sieciowych
 Name:		python-%{module}
-Version:	21
+Version:	23
 Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
-# Source0-md5:	b03d5b046cde45e73a33d28d1eb859a6
+# Source0-md5:	d4ca0e579347d44f829a53201e0ea9ca
 URL:		http://pesto.redgecko.org/index.html
 # BuildRequires:	python-distribute
 BuildRequires:	python-setuptools
@@ -31,7 +31,6 @@ unicodowe, zgodne ze standardem WSGI aplikacje. Odpytywać informacje
 WSGI o zapytaniu w tym zmienne z formatek i nagłówków HTTP. Tworzyć i
 manipulować nagłówki HTTP, przekierowania, ciasteczka itp.
 
-
 %prep
 %setup -q -n %{module}-%{version}
 %{__python} setup.py build
@@ -52,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-# %doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
+%doc AUTHORS.txt CHANGELOG.txt NEWS.txt README.txt THANKS.txt TODO.txt
 %{py_sitescriptdir}/%{module}
 %if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-*.egg-info

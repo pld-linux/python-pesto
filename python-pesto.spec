@@ -2,12 +2,12 @@
 Summary:	library for Python web applications
 Summary(pl.UTF-8):	Biblioteka dla Pythonowych aplikacji sieciowych
 Name:		python-%{module}
-Version:	23
+Version:	25
 Release:	1
 License:	BSD
 Group:		Development/Languages/Python
 Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
-# Source0-md5:	d4ca0e579347d44f829a53201e0ea9ca
+# Source0-md5:	0e00fb8b949f02b86649da4b5efaa2f4
 URL:		http://pesto.redgecko.org/index.html
 # BuildRequires:	python-distribute
 BuildRequires:	python-setuptools
